@@ -1,0 +1,5 @@
+module CDustpanCore {
+    header "dustpan_core.h"
+    link "dustpan_core"
+    export *
+}
