@@ -53,3 +53,7 @@ are set in Settings (default: home and Downloads, 1 GB).
 - Caches and logs are deleted first, then review items go to the Trash, so emptying the Trash
   in the same run never removes them.
 - Grant Dustpan Full Disk Access to scan protected folders such as Mail and app containers.
+
+## License
+
+[MIT](LICENSE)
