@@ -99,6 +99,13 @@ struct ContentView: View {
 
     private var footer: some View {
         HStack {
+            if !store.categories.isEmpty {
+                CheckBox(state: store.allState) { store.toggleAll() }
+                    .disabled(store.phase != .idle)
+                Text("Chọn tất cả")
+                    .onTapGesture { if store.phase == .idle { store.toggleAll() } }
+                Divider().frame(height: 16)
+            }
             if let notice = store.notice {
                 Label(notice, systemImage: "checkmark.circle.fill").foregroundStyle(.green)
             } else if let error = store.error, store.result != nil {

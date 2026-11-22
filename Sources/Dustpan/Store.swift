@@ -69,6 +69,16 @@ final class AppStore {
         if state(of: c) == .on { selected.subtract(ids) } else { selected.formUnion(ids) }
     }
 
+    var allState: CheckState {
+        let total = categories.reduce(0) { $0 + $1.items.count }
+        let n = selectedItems.count
+        return n == 0 ? .off : n == total ? .on : .mixed
+    }
+
+    func toggleAll() {
+        selected = allState == .on ? [] : Set(categories.flatMap { $0.items.map(\.id) })
+    }
+
     func toggle(_ item: ScanItem) {
         if selected.remove(item.id) == nil { selected.insert(item.id) }
     }
